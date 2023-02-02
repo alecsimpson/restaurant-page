@@ -11,48 +11,28 @@ const displayController = (() => {
   wrapperEl.appendChild(contentEl);
   document.querySelector('body').appendChild(wrapperEl);
 
-  const createEl = (type, style, inner) => {
+  const createEl = (type, elConfig) => {
     const el = document.createElement(type);
-    if (style) {
-      el.classList.add(style);
-    }
-    el.innerHTML = inner;
+    if (!elConfig) { return el; }
+
+    Object.keys(elConfig).forEach((key) => {
+      el[key] = elConfig[key];
+    });
 
     return el;
   };
 
-  const displayHeader = () => {
-    const headerEl = document.createElement('div');
-    headerEl.id = 'header';
-
-    const titleEl = createEl('div', 'title', 'The Irish Pub');
-    headerEl.appendChild(titleEl);
-
-    const tabsEl = createEl('div', 'tabs', '');
-
-    const homeTabEl = createEl('div', 'home', 'Home');
-    tabsEl.appendChild(homeTabEl);
-
-    const menuTabEl = createEl('div', 'menu', 'Menu');
-    tabsEl.appendChild(menuTabEl);
-
-    const contactTabEl = createEl('div', 'contact', 'Contact');
-    tabsEl.appendChild(contactTabEl);
-
-    headerEl.appendChild(tabsEl);
-    wrapperEl.prepend(headerEl);
-  };
-
   const displayHome = () => {
-    const introEl = createEl('div', 'intro', 'The best place off the island for beer, bangers and bollocks!');
+    document.querySelector('#content').innerHTML = '';
 
-    const slideshowEl = createEl('div', 'slideshow', '');
-    const imgEl = createEl('img', '', '');
-    imgEl.src = foodPic;
+    const introEl = createEl('div', { className: 'intro', innerHTML: 'The best place off the island for beer, bangers and bollocks!' });
+
+    const slideshowEl = createEl('div', { className: 'slideshow' });
+    const imgEl = createEl('img', { src: foodPic });
     slideshowEl.appendChild(imgEl);
 
-    const addrLine1El = createEl('div', 'address-line-1', '1234 Taraval Street');
-    const addrLine2El = createEl('div', 'address-line-2', 'San Francisco CA, 94122');
+    const addrLine1El = createEl('div', { className: 'address-line-1', innerHTML: '1234 Taraval Street' });
+    const addrLine2El = createEl('div', { className: 'address-line-2', innerHTML: 'San Francisco CA, 94122' });
 
     contentEl.appendChild(introEl);
     contentEl.appendChild(slideshowEl);
@@ -60,9 +40,50 @@ const displayController = (() => {
     contentEl.appendChild(addrLine2El);
   };
 
+  const displayMenu = () => {
+    document.querySelector('#content').innerHTML = '';
+
+    const menuGridEl = createEl('div', { className: 'menu-grid' });
+  };
+
+  const displayContact = () => {
+    document.querySelector('#content').innerHTML = '';
+  };
+
+  const displayHeader = () => {
+    const headerEl = createEl('div', { id: 'header' });
+
+    const titleEl = createEl('div', { className: 'title', innerHTML: 'The Irish Pub' });
+    headerEl.appendChild(titleEl);
+
+    const tabsEl = createEl('div', { className: 'tabs' });
+
+    const homeTabEl = createEl('a', {
+      className: 'home', innerHTML: 'Home', href: '#home', onclick: displayHome,
+    });
+    tabsEl.appendChild(homeTabEl);
+
+    const menuTabEl = createEl('a', {
+      className: 'menu', innerHTML: 'Menu', href: '#menu', onclick: displayMenu,
+    });
+    tabsEl.appendChild(menuTabEl);
+
+    const contactTabEl = createEl('a', {
+      className: 'contact', innerHTML: 'Contact', href: '#contact', onclick: displayContact,
+    });
+    tabsEl.appendChild(contactTabEl);
+
+    headerEl.appendChild(tabsEl);
+    wrapperEl.prepend(headerEl);
+  };
+
+  const initPage = () => {
+    displayHeader();
+    displayHome();
+  };
+
   return {
-    displayHeader,
-    displayHome,
+    initPage,
   };
 })();
 
