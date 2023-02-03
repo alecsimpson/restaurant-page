@@ -45,6 +45,10 @@ hr {
     color: inherit;
 }
 
+.tabs .selected {
+    text-decoration: underline;
+}
+
 .logo {
     max-width: 15%;
     height: auto;
