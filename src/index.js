@@ -6,7 +6,7 @@ import displayContact from './displayContact';
 
 displayUtil.initPage();
 displayHeader();
-displayMenu();
+displayContact();
 document.querySelector('.tabs .home').onclick = displayHome;
 document.querySelector('.tabs .menu').onclick = displayMenu;
 document.querySelector('.tabs .contact').onclick = displayContact;

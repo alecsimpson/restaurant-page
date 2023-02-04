@@ -141,11 +141,31 @@ hr {
 }
 
 .menuItemName {
-    align-items: left;
     font-weight: bold;
     /* margin-top: 10px; */
 }
 
+.visitUsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+
+.visitUsHeader {
+    font-weight: bold;
+    font-size: 2em;
+}
+
+.addressLine {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.phoneAndEmailLine {
+    font-weight: bold;
+    margin-top: 10px;
+}
 
 /* 
 #footer {
