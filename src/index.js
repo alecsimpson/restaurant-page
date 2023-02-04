@@ -4,10 +4,9 @@ import displayHome from './displayHome';
 import displayMenu from './displayMenu';
 import displayContact from './displayContact';
 
-(() => {
-  displayUtil.initPage();
-  displayHeader();
-  document.querySelector('.tabs .home').onclick = displayHome;
-  document.querySelector('.tabs .menu').onclick = displayMenu;
-  document.querySelector('.tabs .contact').onclick = displayContact;
-})();
+displayUtil.initPage();
+displayHeader();
+displayMenu();
+document.querySelector('.tabs .home').onclick = displayHome;
+document.querySelector('.tabs .menu').onclick = displayMenu;
+document.querySelector('.tabs .contact').onclick = displayContact;

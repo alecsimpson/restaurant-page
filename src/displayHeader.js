@@ -1,8 +1,14 @@
 import './style.css';
 import util from './displayUtil';
+import worldTreeImg from '../assets/world-tree.png';
 
 const displayHeader = () => {
   const headerEl = util.createEl('div', { id: 'header' });
+
+  const logoEl = util.createEl('img', { className: 'logo', src: worldTreeImg });
+  headerEl.appendChild(logoEl);
+
+  const navContainer = util.createEl('div', { className: 'navContainer' });
 
   const titleEl = util.createEl('div', { className: 'title', innerHTML: 'The Irish Pub' });
   headerEl.appendChild(titleEl);
@@ -24,7 +30,8 @@ const displayHeader = () => {
   });
   tabsEl.appendChild(contactTabEl);
 
-  headerEl.appendChild(tabsEl);
+  navContainer.appendChild(tabsEl);
+  headerEl.appendChild(navContainer);
   document.querySelector('#wrapper').prepend(headerEl);
 };
 

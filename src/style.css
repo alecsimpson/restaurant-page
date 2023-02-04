@@ -4,18 +4,16 @@
 }
 
 body {
-    font-family: "gaelicFont";
+    font-family: "helvetica";
     margin: 0;
-    background: url('../assets/celtic-ornament_1159-3654.avif');
+    /* background: url('../assets/celtic-ornament_1159-3654.avif'); */
     background-repeat: repeat;
-    
+    padding-bottom: 10%;
 }
 
 #wrapper {
-    margin-left: 10%;
-    margin-right: 10%;
-    height: 100vh;
-    background-color: rgba(211, 211, 211, 60%);
+    height: 100%;
+    /* background-color: rgba(211, 211, 211, 60%); */
     
 }
 
@@ -31,6 +29,18 @@ hr {
     align-items: center;
     gap: 2vh;
     margin-bottom: 10%;
+}
+
+.navContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    background-color: black;
+    color: white;
+    width: 100%;
+    padding-top: 5%;
+    padding-bottom: 5%;
 }
 
 .tabs {
@@ -50,13 +60,16 @@ hr {
 }
 
 .logo {
-    max-width: 15%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    max-width: 25%;
     height: auto;
 }
 
 .title {
-    margin-top: 10%;
-    font-size: 2.5em;
+    font-size: 3em;
+    font-family: gaelicFont;
+
 }
 
 
@@ -90,6 +103,49 @@ hr {
     width: 100%;
     height: auto;
 }
+
+.hoursContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 5%;
+}
+
+.hoursHeader {
+    font-weight: bold;
+    font-size: 2em;
+}
+
+.hoursBold {
+    font-weight: bold;
+}
+
+
+.menuContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.menuHeader {
+    font-weight: bold;
+    font-size: 2.5em;
+}
+
+.menuSection {
+    font-weight: bold;
+    font-size: 1.8em;
+    margin-top: 15%;
+}
+
+.menuItemName {
+    align-items: left;
+    font-weight: bold;
+    /* margin-top: 10px; */
+}
+
 
 /* 
 #footer {

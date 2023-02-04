@@ -31,10 +31,13 @@ const displayUtil = (() => {
     document.querySelector(tab).classList.add('selected');
   };
 
+  const configFactory = (className, innerHTML) => ({ className, innerHTML });
+
   return {
     initPage,
     createEl,
     selectTab,
+    configFactory,
   };
 })();
 
